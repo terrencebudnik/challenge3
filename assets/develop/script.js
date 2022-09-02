@@ -22,15 +22,15 @@ generateBtn.addEventListener("click", writePassword);
   var alphaOptionslower = alphaOptionsupper.toLowerCase();
   var randomNumber = "123456789";
   var specialCharacters = "!'()*+#$%&,-./:;<=>?@[\]^_`{|}~"
-  var inclusive;
-  var randomCharacter; 
+
+
   
 
 
 
 function generatePassword() {
-
-var passwordLength = prompt("Please choose length of desired password; must be between 8 and 128 characters");
+  var inclusive = ""; 
+  var passwordLength = prompt("Please choose length of desired password; must be between 8 and 128 characters");
   
   if ((passwordLength >= 8) && (passwordLength <= 128)) {
     wantsUppercase = confirm("Do you want to include UPPERCASE characters?");
@@ -60,8 +60,6 @@ var passwordLength = prompt("Please choose length of desired password; must be b
     
     for (var i = 0; i < parseInt(passwordLength); i++) {
       completedPassword += [inclusive[Math.floor(Math.random() * parseInt(inclusive.length))]];
-      generatePassword;
- 
     }
   
   
@@ -72,5 +70,6 @@ var passwordLength = prompt("Please choose length of desired password; must be b
   }
 
   return completedPassword;
+
 
   }
