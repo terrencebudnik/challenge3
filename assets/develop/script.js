@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -10,9 +11,9 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener('click', writePassword)
 
+function generatePassword() {
   var wantsUppercase;
   var wantsLowerCase;
   var wantsNumbers;
@@ -22,22 +23,18 @@ generateBtn.addEventListener("click", writePassword);
   var alphaOptionslower = alphaOptionsupper.toLowerCase();
   var randomNumber = "123456789";
   var specialCharacters = "!'()*+#$%&,-./:;<=>?@[\]^_`{|}~"
-
-
+  var inclusive= ""; 
   
 
-
-
-function generatePassword() {
-  var inclusive = ""; 
   var passwordLength = prompt("Please choose length of desired password; must be between 8 and 128 characters");
   
+
+
   if ((passwordLength >= 8) && (passwordLength <= 128)) {
     wantsUppercase = confirm("Do you want to include UPPERCASE characters?");
     if (wantsUppercase = "True"){
       inclusive += alphaOptionsupper;
-    }
-    
+    } 
     wantsLowerCase = confirm("Do you want to include lowercase characters?");
     if (wantsLowerCase = "True"){
       inclusive += alphaOptionslower
@@ -53,11 +50,7 @@ function generatePassword() {
       inclusive += specialCharacters
     }
     
-    //  function generateRandom() {
-    //   randomCharacter = [inclusive[Math.floor(Math.random() * parseInt(inclusive.length))]];
-    //   return randomCharacter; 
-    
-    
+       
     for (var i = 0; i < parseInt(passwordLength); i++) {
       completedPassword += [inclusive[Math.floor(Math.random() * parseInt(inclusive.length))]];
     }
@@ -69,7 +62,11 @@ function generatePassword() {
     generatePassword();  
   }
 
-  return completedPassword;
+  return inclusive;
+
+}
 
 
-  }
+
+console.log(generatePassword)
+
