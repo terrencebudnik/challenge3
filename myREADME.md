@@ -1,5 +1,7 @@
 # Challenge3
 
+![Live Link](https://terrencebudnik.github.io/challenge3/)
+![Screenshot](challenge3_screenshot.png)
 
 
 

@@ -3,7 +3,6 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -23,6 +22,7 @@ function generatePassword() {
   var alphaOptionslower = alphaOptionsupper.toLowerCase();
   var randomNumber = "123456789";
   var specialCharacters = "!'()*+#$%&,-./:;<=>?@[\]^_`{|}~"
+  var completedPassword= []; 
   var inclusive= ""; 
   
 
@@ -49,10 +49,19 @@ function generatePassword() {
     if (wantsSpecialcharacters = "True"){
       inclusive += specialCharacters
     }
+
+
     
        
     for (var i = 0; i < parseInt(passwordLength); i++) {
-      completedPassword += [inclusive[Math.floor(Math.random() * parseInt(inclusive.length))]];
+      var randomIndex = Math.floor(Math.random() * parseInt(inclusive.length)); 
+      var randomAll = inclusive[randomIndex];
+      completedPassword += randomAll; 
+
+
+      
+    
+
     }
   
 
@@ -61,12 +70,11 @@ function generatePassword() {
     alert("Password needs to be between 8 and 128 characters long.");
     generatePassword();  
   }
-
-  return completedPassword
+return completedPassword; 
 
 }
 
 
 
-console.log(generatePassword)
+
 
