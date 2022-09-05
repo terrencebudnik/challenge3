@@ -55,14 +55,14 @@ function generatePassword() {
       completedPassword += [inclusive[Math.floor(Math.random() * parseInt(inclusive.length))]];
     }
   
-  
+
   
   } else {
     alert("Password needs to be between 8 and 128 characters long.");
     generatePassword();  
   }
 
-  return inclusive;
+  return completedPassword
 
 }
 
