@@ -10,69 +10,68 @@ function writePassword() {
 
 }
 
-generateBtn.addEventListener('click', writePassword)
 
 function generatePassword() {
-  var wantsUppercase;
-  var wantsLowerCase;
-  var wantsNumbers;
-  var wantsSpecialcharacters;
-  var completedPassword;
   var alphaOptionsupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var alphaOptionslower = alphaOptionsupper.toLowerCase();
   var randomNumber = "123456789";
-  var specialCharacters = "!'()*+#$%&,-./:;<=>?@[\]^_`{|}~"
-  var completedPassword= []; 
-  var inclusive= ""; 
+  var specialCharacters = "!'()*+#$%&,-./:;<=>?@[\]^_`{|}~";
   
 
+
   var passwordLength = prompt("Please choose length of desired password; must be between 8 and 128 characters");
-  
+
 
 
   if ((passwordLength >= 8) && (passwordLength <= 128)) {
+    var wantsUppercase = true;
     wantsUppercase = confirm("Do you want to include UPPERCASE characters?");
-    if (wantsUppercase = "True"){
-      inclusive += alphaOptionsupper;
-    } 
+   
+    var wantsLowerCase = true;
     wantsLowerCase = confirm("Do you want to include lowercase characters?");
-    if (wantsLowerCase = "True"){
-      inclusive += alphaOptionslower
-    }
     
+    var wantsNumbers = true;
     wantsNumbers = confirm("Do you want to include numbers?");
-    if (wantsNumbers = "True"){
-      inclusive += randomNumber
-    }
-
+    
+    var wantsSpecialcharacters = true;
     wantsSpecialcharacters = confirm("Do you want to include special characters?");
-    if (wantsSpecialcharacters = "True"){
-      inclusive += specialCharacters
-    }
-
-
-    
-       
-    for (var i = 0; i < parseInt(passwordLength); i++) {
-      var randomIndex = Math.floor(Math.random() * parseInt(inclusive.length)); 
-      var randomAll = inclusive[randomIndex];
-      completedPassword += randomAll; 
-
-
-      
-    
-
-    }
-  
-
-  
-  } else {
-    alert("Password needs to be between 8 and 128 characters long.");
-    generatePassword();  
   }
-return completedPassword; 
+  else {
+    alert("Password needs to be between 8 and 128 characters long.");
+    generatePassword();
+  }
 
-}
+  var tempPassword = "";
+
+  if (wantsUppercase) {
+    tempPassword +=alphaOptionsupper; 
+  }
+
+  if (wantsLowerCase) {
+    tempPassword +=alphaOptionslower; 
+  }   
+
+  if (wantsNumbers) {
+    tempPassword += randomNumber;
+  }
+
+  if (wantsSpecialcharacters) {
+    tempPassword += specialCharacters;
+  }
+
+    var completedPassword = ""; 
+    for (var i = 0; i < parseInt(passwordLength); i++) {
+      var randomValue = Math.floor(Math.random() * (tempPassword.length));
+      completedPassword += tempPassword[randomValue]; 
+      
+    }
+
+
+    return completedPassword;
+ 
+  }
+
+  generateBtn.addEventListener('click', writePassword)
 
 
 
